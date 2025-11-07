@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Course</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+</head>
+<body>
+
+    <div class="container-fluid register d-flex align-items-center justify-content-center">
+        <div class="form-container shadow p-4 rounded ">
+            <h2 class="text-center mb-4 fw-bold text-dark">Add a Course</h2>
+
+            <form class="">
+                <div class="mb-3 ">
+                    <label for="courseName" class="form-label">Course Name</label>
+                    <input type="text" class="form-control" id="courseName" placeholder="e.g. Science, Technology, and Society">
+                </div>
+                <div class="mb-3 ">
+                    <label for="courseCode" class="form-label">Course Code</label>
+                    <input type="text" class="form-control" id="courseCode" placeholder="e.g. CSHTAPSOL1">
+                </div>
+                <div class="mb-3 ">
+                    <label  class="form-label">Course Category</label>
+                    <div class="row">
+                        <div class="dropdown col-md-6 mb-3">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select Category
+                            </button>
+                            <ul class="dropdown-menu w-100" id="categoryDropdown">
+
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" placeholder="Category" readonly class="form-control" id="selectedCategory">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="courseHours" class="form-label">Hours per Week</label>
+                        <input type="text" class="form-control" id="courseHours">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="courseSessions" class="form-label">Sessions per Week</label>
+                        <input type="text" class="form-control" id="courseSessions">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="courseYear" class="form-label">Academic Year</label>
+                        <input type="text" class="form-control" id="courseYear">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="courseTerm" class="form-label">Term</label>
+                        <input type="text" class="form-control" id="courseTerm">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Teacher(s) </label>
+                    <div id="teachersContainer">
+
+                    </div>
+                    <button type="button" id="addTeacher" class="btn btn-primary">Add teacher</button>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Section(s) </label>
+                    <div id="sectionsContainer">
+
+                    </div>
+                    <button type="button" id="addSection" class="btn btn-primary">Add section</button>
+                </div>
+                <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../scripts/addCourse.js"></script>
+</body>
+</html>
