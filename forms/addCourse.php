@@ -6,7 +6,7 @@
     $conn = getConnection();
 
     // Get POST data safely
-    $name = $_POST["name"] ?? null;
+    $name = $_POST["courseName"] ?? null;
     $hours = $_POST["hours"] ?? null;
     $sessions = $_POST["sessions"] ?? null;
     $term = $_POST["term"] ?? null;
