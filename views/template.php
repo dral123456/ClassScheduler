@@ -1,15 +1,22 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Shared on THEMELOCK.COM - UI Form Layout | Urbix Admin & Dashboards Template </title>
+  <title>Class Scheduler</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta content="Admin & Dashboards Template" name="description" />
   <meta content="Pixeleyez" name="author" />
   
   <!-- layout setup -->
   <script type="module" src="views/assets/dist/assets/js/layout-setup.js"></script>
-  
+
+  <!-- JQuery -->
+  <script src="views/assets/dist/assets/js/jquery-4.0.0.min.js"></script>
+
   <!-- App favicon -->
   <link rel="shortcut icon" href="views/assets/dist/assets/images/favicon.png">    <!-- Picker CSS -->
   <link rel="stylesheet" href="views/assets/dist/assets/libs/air-datepicker/air-datepicker.css">
@@ -53,9 +60,6 @@
 <script src="views/assets/dist/assets/libs/air-datepicker/air-datepicker.js"></script>
 
 <script src="views/assets/dist/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-
-<script src="views/assets/dist/assets/js/form/form-layout.init.js"></script>
-<script src="views/assets/dist/assets/js/app.js"></script>
 
 </body>
 

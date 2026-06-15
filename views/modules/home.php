@@ -6,13 +6,17 @@
             </div>
             <div class="card-body">
                 <p class="text-muted mb-4">Please enter a school year</p>
-                <form action="javascript:void(0);">
+                <form action="" method="POST">
                     <div class="row g-4">
                         <div class="col-xxl-6">
-                            <input type="text" class="form-control" id="firstnameLayout2" placeholder="e.g., 2023-2024" required>
+                            <input type="text" class="form-control" name="schoolYear" placeholder="e.g., 2023-2024" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit Form</button>
+                    <button type="submit" class="btn btn-primary mt-3" name="submitSY">Submit Form</button>
+                    <?php
+                        $schoolYear = new ControllerSession();
+                        $schoolYear->setSchoolYear();
+                    ?>
                 </form>
             </div>
         </div>
