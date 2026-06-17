@@ -32,6 +32,11 @@
   <link href="views/assets/dist/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
   <!--icons css-->
   <link href="views/assets/dist/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Sweet Alert -->
+  <link href="views/assets/dist/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+  <script src="views/assets/dist/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
   <!-- App Css-->
   <link href="views/assets/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
 </head>
@@ -45,7 +50,7 @@
         $route = $_GET['route'];
         include "views/modules/" . $route . ".php";
       }else{
-        include "views/modules/home.php";
+        include "views/modules/school-year.php";
       }
       echo '</div>';
     // echo '</main>';
@@ -60,6 +65,24 @@
 <script src="views/assets/dist/assets/libs/air-datepicker/air-datepicker.js"></script>
 
 <script src="views/assets/dist/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<?php
+  if(isset($route)){
+    $routeScripts = [
+      "room-reg"=> ["room-reg.js"],
+    ];
+
+    if(array_key_exists($route, $routeScripts)){
+      foreach($routeScripts[$route] as $script){
+        $scriptPath = "views/js/" . $script;
+        if(file_exists($scriptPath)){
+          echo '<script src="/classscheduler/' . $scriptPath . '"></script>';
+        }  
+      }
+    }
+  }
+?>
+
 
 </body>
 
