@@ -1,5 +1,14 @@
 $(document).ready(function() {
   $('#submitRoom').click(function(event) {
+    if ($('#roomNum').val() === '' || $('#roomType').val() === null) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Incomplete Fields',
+        text: 'Please fill in all the fields before submitting.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
     saveRoom();
   });
 

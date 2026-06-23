@@ -39,6 +39,9 @@
 
   <!-- App Css-->
   <link href="views/assets/dist/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="views/assets/dist/assets/images/favicon.png">    <link rel="stylesheet" href="views/assets/dist/assets/libs/prismjs/themes/prism-coy.min.css">
+
 </head>
 
 <body>
@@ -66,10 +69,17 @@
 
 <script src="views/assets/dist/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
 
+<script src="views/assets/dist/assets/libs/prismjs/prism.js"></script>
+
+<script src="views/assets/dist/assets/js/form/forms-select.init.js"></script>
+
+
 <?php
   if(isset($route)){
     $routeScripts = [
       "room-reg"=> ["room-reg.js"],
+      "course-reg"=> ["course-reg.js"],
+      "teacher-reg"=> ["teacher-reg.js"],
     ];
 
     if(array_key_exists($route, $routeScripts)){
