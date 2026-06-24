@@ -80,6 +80,7 @@
       "room-reg"=> ["room-reg.js"],
       "course-reg"=> ["course-reg.js"],
       "teacher-reg"=> ["teacher-reg.js"],
+      "section-reg"=> ["section-reg.js"],
     ];
 
     if(array_key_exists($route, $routeScripts)){

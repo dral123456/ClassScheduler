@@ -45,4 +45,29 @@ class ModelTeacher{
       return "error: " . $e->getMessage();
     }
   }
+  static public function teacherList($courseID = null) {
+      $db = (new Connection)->connect();
+
+      if ($courseID) {
+          $stmt = $db->prepare("
+              SELECT t.teacherID, t.teacherFName, t.teacherMName, t.teacherLName, t.teacherSuffix
+              FROM teacher t
+              INNER JOIN course_teacher ct ON t.teacherID = ct.teacherID
+              WHERE t.teacherStatus = 'Active'
+              AND ct.courseID = :courseID
+          ");
+          $stmt->bindParam(':courseID', $courseID, PDO::PARAM_STR);
+      } else {
+          $stmt = $db->prepare("
+              SELECT teacherID, teacherFName, teacherMName, teacherLName, teacherSuffix
+              FROM teacher
+              WHERE teacherStatus = 'Active'
+          ");
+      }
+
+      $stmt->execute();
+      $results = $stmt->fetchAll();
+      $stmt = null;
+      return $results;
+  }
 }

@@ -42,4 +42,29 @@ class ModelRoom{
       return "error: " . $e->getMessage();
     }
   }
+  static public function roomList($courseID = null) {
+      $db = (new Connection)->connect();
+
+      if ($courseID) {
+          $stmt = $db->prepare("
+              SELECT r.roomID, r.roomNum
+              FROM room r
+              INNER JOIN course c ON r.roomType = c.roomNeed
+              WHERE r.roomStatus = 'Available'
+              AND c.courseID = :courseID
+          ");
+          $stmt->bindParam(':courseID', $courseID, PDO::PARAM_STR);
+      } else {
+          $stmt = $db->prepare("
+              SELECT roomID, roomNum
+              FROM room
+              WHERE roomStatus = 'Available'
+          ");
+      }
+
+      $stmt->execute();
+      $results = $stmt->fetchAll();
+      $stmt = null;
+      return $results;
+  }
 }

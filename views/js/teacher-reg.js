@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
   $('#next').click(function() {
-    window.location.href = 'teacher-reg';
+    window.location.href = 'section-reg';
   });
 
   $('#addCourse').click(function() {

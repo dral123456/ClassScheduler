@@ -4,4 +4,8 @@ class ControllerTeacher{
     $response = ModelTeacher :: regTeacher($data);
     return $response;
   }
+  static public function teacherList($courseID = null) {
+      $response = ModelTeacher::teacherList($courseID);
+      return $response;
+  }
 }
