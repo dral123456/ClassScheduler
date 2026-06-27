@@ -8,11 +8,22 @@
               <p class="text mb-4">Please fill up the form below to register a new section.</p>
               <form action="" method="POST">
                 <div class="row g-3">
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <label for="sectionCode" class="form-label">Section Name<span class="text-danger ms-1">*</span></label>
                     <input type="text" class="form-control" id="sectionCode" placeholder="e.g., COM241" required>
                   </div>
-                  
+                  <div class="col-md-4">
+                      <label for="sectionSY" class="form-label">School Year<span class="text-danger ms-1">*</span></label>
+                      <input type="text" class="form-control" id="sectionSY" placeholder="e.g., 2024-2025" required>
+                  </div>
+                  <div class="col-md-4">
+                      <label class="form-label">Semester<span class="text-danger ms-1">*</span></label>
+                      <select class="form-select semester-select">
+                          <option value="1st Semester">1st Semester</option>
+                          <option value="2nd Semester">2nd Semester</option>
+                          <option value="3rd Semester">3rd Semester</option>
+                      </select>
+                  </div>
                   <div class="col-md-12">
                     <div class="d-flex align-items-center justify-content-between flex-wrap mb-2">
                       <label class="form-label mb-0">Courses <span class="text-danger">*</span></label>

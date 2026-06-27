@@ -11,7 +11,7 @@ $(document).ready(function() {
   loadRoom();
 
   $('#submitSection').click(function () {
-      if ($('#sectionCode').val() === '') {
+      if ($('#sectionCode').val() === '' || $('#sectionSY').val() === '') {
           Swal.fire({ icon: 'warning', title: 'Incomplete Fields', text: 'Please fill in all required fields.', confirmButtonText: 'OK' });
           return;
       }
@@ -252,12 +252,9 @@ $(document).ready(function() {
       let csrtItems = [];
 
       $('.course-item').each(function () {
-          // Get the raw <select> element's value, not Choices.js wrapper
           let courseID  = $(this).find('.course-select')[0].value;
           let teacherID = $(this).find('.teacher-select')[0].value;
           let roomID    = $(this).find('.room-select')[0].value;
-
-          console.log({ courseID, teacherID, roomID }); // verify
 
           if (courseID && teacherID && roomID) {
               csrtItems.push({ courseID, teacherID, roomID });
@@ -270,7 +267,9 @@ $(document).ready(function() {
       }
 
       let formData = new FormData();
-      formData.append('sectionCode', $('#sectionCode').val());
+      formData.append('sectionCode',     $('#sectionCode').val());
+      formData.append('sectionSY',       $('#sectionSY').val());
+      formData.append('sectionSemester', $('.semester-select')[0].value);
 
       $.ajax({
           url: 'ajax/section-reg.ajax.php',

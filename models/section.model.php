@@ -18,15 +18,17 @@ class ModelSection {
             $sectionID = $id_stmt->fetch(PDO::FETCH_ASSOC)['gen_id'];
 
             $stmt = $pdo->prepare("
-                INSERT INTO section(sectionID, sectionCode, sectionStatus)
-                VALUES (:sectionID, :sectionCode, 'Active')
+                INSERT INTO section(sectionID, sectionCode, sectionSY, sectionSemester, sectionStatus)
+                VALUES (:sectionID, :sectionCode, :sectionSY, :sectionSemester, 'Active')
             ");
-            $stmt->bindParam(':sectionID',   $sectionID,          PDO::PARAM_STR);
-            $stmt->bindParam(':sectionCode', $data['sectionCode'], PDO::PARAM_STR);
+            $stmt->bindParam(':sectionID',       $sectionID,               PDO::PARAM_STR);
+            $stmt->bindParam(':sectionCode',     $data['sectionCode'],     PDO::PARAM_STR);
+            $stmt->bindParam(':sectionSY',       $data['sectionSY'],       PDO::PARAM_STR);
+            $stmt->bindParam(':sectionSemester', $data['sectionSemester'], PDO::PARAM_STR);
 
             if ($stmt->execute()) {
                 $pdo->commit();
-                return $sectionID; // return ID so JS can pass it to csrt-reg
+                return $sectionID;
             } else {
                 $pdo->rollBack();
                 return "error";

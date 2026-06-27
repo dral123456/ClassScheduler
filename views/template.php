@@ -45,6 +45,9 @@
 </head>
 
 <body>
+<!-- SIDEBAR -->
+<?php include "views/modules/sidebar.php"; ?>
+<!-- END SIDEBAR -->
   <?php
   echo '<div id="layout-wrapper">';
     // echo '<main class="app-wrapper">';
@@ -81,6 +84,8 @@
       "course-reg"=> ["course-reg.js"],
       "teacher-reg"=> ["teacher-reg.js"],
       "section-reg"=> ["section-reg.js"],
+      "teacher-availability-reg"=> ["teacher_availability-reg.js"],
+      "room-availability-reg"=> ["room_availability-reg.js"],
     ];
 
     if(array_key_exists($route, $routeScripts)){
